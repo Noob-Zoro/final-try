@@ -9,10 +9,18 @@
 <body>
 
 <div class="container">
-    <h2>Get It Done!</h2>
+    <h2>Get It Done by Zoro!</h2>
     <input type="text" id="taskInput" placeholder="What's the plan?">
     <button onclick="addTask()">Add</button>
     <ul id="taskList"></ul>
+</div>
+    
+<div class="stopwatch">
+    <div id="display">00:00:00</div>
+    <div class="controls">
+        <button onclick="startStop()" id="startBtn">Start</button>
+        <button onclick="reset()">Reset</button>
+    </div>
 </div>
 
 <script>
@@ -32,4 +40,5 @@
 </script>
 </body>
 </html>
+
 
