@@ -15,6 +15,21 @@
     <ul id="taskList"></ul>
 </div>
 
-<script src="script.js"></script>
+<script>
+    function addTask() {
+        const input = document.getElementById("taskInput");
+        const taskList = document.getElementById("taskList");
+        if (input.value.trim() === '') return;
+
+        const li = document.createElement("li");
+        li.innerHTML = `
+            <span onclick="this.parentElement.classList.toggle('checked')">${input.value}</span>
+            <span class="delete" onclick="this.parentElement.remove()">X</span>
+        `;
+        taskList.appendChild(li);
+        input.value = "";
+    }
+</script>
 </body>
 </html>
+
