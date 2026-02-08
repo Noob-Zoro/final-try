@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Rad To-Do List</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; background: #1a1a2e; color: #fff; display: flex; justify-content: center; padding-top: 50px; }
+        .container { background: #16213e; padding: 2rem; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); width: 350px; }
+        h2 { text-align: center; color: #0f3460; background: #e94560; margin: -2rem -2rem 1.5rem -2rem; padding: 1rem; border-radius: 15px 15px 0 0; }
+        input { width: 70%; padding: 10px; border: none; border-radius: 5px; outline: none; }
+        button { padding: 10px; border: none; border-radius: 5px; background: #e94560; color: white; cursor: pointer; font-weight: bold; }
+        ul { list-style: none; padding: 0; margin-top: 20px; }
+        li { background: #0f3460; margin-bottom: 10px; padding: 10px; border-radius: 5px; display: flex; justify-content: space-between; align-items: center; transition: 0.3s; }
+        li.checked { text-decoration: line-through; opacity: 0.5; background: #1a1a2e; }
+        .delete { color: #e94560; cursor: pointer; font-weight: bold; padding: 0 5px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Get It Done!</h2>
+    <input type="text" id="taskInput" placeholder="What's the plan?">
+    <button onclick="addTask()">Add</button>
+    <ul id="taskList"></ul>
+</div>
+
+<script>
+    function addTask() {
+        let input = document.getElementById("taskInput");
+        let taskText = input.value;
+        if (taskText === '') return;
+
+        let li = document.createElement("li");
+        li.innerHTML = `
+            <span onclick="this.parentElement.classList.toggle('checked')">${taskText}</span>
+            <span class="delete" onclick="this.parentElement.remove()">X</span>
+        `;
+        
+        document.getElementById("taskList").appendChild(li);
+        input.value = "";
+    }
+</script>
+
+</body>
+</html>
